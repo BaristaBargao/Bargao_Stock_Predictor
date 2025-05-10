@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>預測紀錄｜百九預測</title>
+  <style>
+    body {
+      font-family: "Noto Sans TC", sans-serif;
+      max-width: 720px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: #f7f7f7;
+      color: #333;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      background: white;
+    }
+    th, td {
+      padding: 0.6rem;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+    th {
+      background-color: #eee;
+    }
+    h1 {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>📜 預測紀錄查詢</h1>
+
+  {% if records %}
+  <table>
+    <tr>
+      <th>日期</th>
+      <th>股票代碼</th>
+      <th>預測收盤</th>
+      <th>預測最高</th>
+      <th>預測最低</th>
+    </tr>
+    {% for row in records %}
+    <tr>
+      <td>{{ row.date }}</td>
+      <td>{{ row.symbol }}</td>
+      <td>{{ row.close }}</td>
+      <td>{{ row.high }}</td>
+      <td>{{ row.low }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% else %}
+  <p style="text-align: center;">目前尚無預測紀錄。</p>
+  {% endif %}
+</body>
+</html>
